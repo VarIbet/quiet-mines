@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f5f4ef">
+  <meta name="description" content="一局安静的扫雷。简约设计，首次点击安全，支持键盘与触屏。">
+  <title>Quiet Mines · 一局安静的扫雷</title>
+  <link rel="icon" href="icon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="style.css">
+  <script src="engine.js" defer></script>
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <main class="app">
+    <header class="masthead"><a class="wordmark" href="./" aria-label="Quiet Mines 首页"><span class="brand-mark" aria-hidden="true">✳</span> quiet mines<span class="brand-dot">.</span></a><div class="header-actions"><button class="icon-button" id="help" aria-label="玩法说明">?</button><button class="icon-button" id="theme" aria-label="切换深色模式">◐</button></div></header>
+    <section class="intro"><p class="eyebrow">A LITTLE FOCUS, A LITTLE LUCK.</p><h1>慢一点，<br>下一格也许是惊喜<span>。</span></h1><p class="subtitle">排除一点不确定，留下一点好心情。</p></section>
+    <section class="game" aria-label="扫雷游戏">
+      <div class="game-toolbar"><div class="difficulty" role="group" aria-label="选择难度"><button data-level="easy" aria-pressed="true">轻松</button><button data-level="medium" aria-pressed="false">专注</button><button data-level="hard" aria-pressed="false">挑战</button></div><button class="restart" id="restart"><span aria-hidden="true">↻</span> 新一局 <kbd>R</kbd></button></div>
+      <div class="scoreboard"><div class="stat"><span class="stat-label">剩余雷数</span><span class="stat-value" id="mines">010</span></div><div class="game-symbol" id="symbol" aria-hidden="true">✳</div><div class="stat time-stat"><span class="stat-label">用时 / 秒</span><span class="stat-value" id="timer">000</span></div></div>
+      <div class="board-wrap" tabindex="0" role="region" aria-label="雷区，较大棋盘可横向滚动"><div id="board" role="grid" aria-label="雷区"></div></div>
+      <div class="game-message" id="message" role="status" aria-live="polite">从任意一格开始，第一步总是安全的。</div>
+      <div class="game-footer"><button class="flag-mode" id="flag-mode" aria-pressed="false"><span aria-hidden="true">⚑</span> 插旗模式 <span class="mode-state" id="mode-state">关</span></button><span class="best">最佳纪录 <strong id="best">—</strong></span></div>
+    </section>
+    <footer class="page-footer"><span>左键翻开 · 右键插旗 · 数字格可快速展开</span><span id="board-info">9 × 9 / 10 MINES</span></footer>
+  </main>
+  <dialog id="help-dialog"><form method="dialog"><button class="dialog-close icon-button" aria-label="关闭说明">×</button><p class="eyebrow">HOW TO PLAY</p><h2>一点观察，一点推理。</h2><ul><li>翻开所有没有地雷的格子，即可获胜。</li><li>数字表示周围八格中的地雷数量。</li><li>右键或长按格子插旗；手机也可以开启「插旗模式」。</li><li>数字周围的旗帜数与数字相等时，再点数字可展开剩余邻格。旗插错了也可能踩雷。</li><li>第一格及周围邻格始终无雷，但后续局面不保证无须猜测。</li></ul><p class="keyboard-help">键盘：方向键移动，Enter / 空格翻开，F 插旗，R 重开。鼠标右键不受插旗模式影响。</p><button class="primary-button">知道了，开始吧</button></form></dialog>
+</body>
+</html>
